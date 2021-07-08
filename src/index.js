@@ -3,16 +3,24 @@ import ReactDOM from "react-dom";
 import reportWebVitals from "./reportWebVitals";
 import { createBrowserHistory } from "history";
 import { Router } from "react-router-dom";
+import { ApolloProvider, ApolloClient, InMemoryCache } from "@apollo/client";
 
-import App from "./components/App";
+import App from "./App";
+
+const client = new ApolloClient({
+  cache: new InMemoryCache(),
+  uri: "http://localhost:80",
+});
 
 const history = createBrowserHistory();
 
 ReactDOM.render(
   <React.StrictMode>
-    <Router history={history}>
-      <App />
-    </Router>
+    <ApolloProvider client={client}>
+      <Router history={history}>
+        <App />
+      </Router>
+    </ApolloProvider>
   </React.StrictMode>,
   document.getElementById("root")
 );
