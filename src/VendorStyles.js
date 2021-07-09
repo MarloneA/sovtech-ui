@@ -3,7 +3,6 @@ import { createGlobalStyle } from "styled-components";
 
 export const GlobalStyle = createGlobalStyle`
   * {
-    font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
 
@@ -16,6 +15,10 @@ export const GlobalStyle = createGlobalStyle`
   dl {
     margin-top: 0;
     margin-bottom: 0;
+  }
+
+  a {
+    text-decoration: none;
   }
 
   body {
@@ -34,6 +37,23 @@ export const GlobalStyle = createGlobalStyle`
 
 `;
 
-const VendorStyles = () => <GlobalStyle />;
+export const MaterialOverides = createGlobalStyle`
+  .Mui-selected {
+      background-color: "transparent";
+      border-color: "#24e5d8";
+      color: "#24e5d8";
+    }
+  .MuiPaginationItem-outlined {
+      border: 1px solid #62686c;
+      color: "#62686c";
+    }
+`;
+
+const VendorStyles = () => (
+  <>
+    <GlobalStyle />
+    <MaterialOverides />
+  </>
+);
 
 export default VendorStyles;

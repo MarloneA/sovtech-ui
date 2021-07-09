@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
+import HomeOutlinedIcon from "@material-ui/icons/HomeOutlined";
 
 const MainWrapper = styled.main`
   display: flex;
@@ -10,14 +11,31 @@ const MainWrapper = styled.main`
 `;
 
 const HeaderWrapper = styled.header`
-  background-color: yellow;
-  height: 10vh;
-  width: 100vw;
+  background-color: #2a353a;
+  height: 7vh;
+  margin: auto;
+  width: 100%;
+  position: fixed;
+  left: 44px;
+
+  & > p {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: rgb(233, 234, 234);
+    padding: 1rem;
+  }
+  & > span {
+    color: #24e5d8;
+  }
 `;
 
 const SideNavigation = styled.aside`
   background-color: #223a40;
   width: 3vw;
+  display: flex;
+  justify-content: center;
+  padding-top: 15px;
+  z-index: 10;
 `;
 
 const ContentWrapper = styled.section`
@@ -28,15 +46,19 @@ const ContentWrapper = styled.section`
   padding: 1em 0;
 `;
 
-const AppTemplate = ({ children, linkUrl }) => {
+const AppTemplate = ({ children, header }) => {
   return (
-    <MainWrapper>
-      <SideNavigation />
-      <ContentWrapper>
-        {/* <HeaderWrapper /> */}
-        {children}
-      </ContentWrapper>
-    </MainWrapper>
+    <>
+      <HeaderWrapper>{header}</HeaderWrapper>
+      <MainWrapper>
+        <SideNavigation>
+          <a href="/">
+            <HomeOutlinedIcon style={{ color: "#24e5d8" }} />
+          </a>
+        </SideNavigation>
+        <ContentWrapper>{children}</ContentWrapper>
+      </MainWrapper>
+    </>
   );
 };
 

@@ -1,6 +1,8 @@
 import React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
+import { useQuery } from "react-query";
+import { Link } from "react-router-dom";
 
 const createGaps = ({ columnGap, rowGap }) => css`
   grid-column-gap: ${`${columnGap}rem`};
@@ -75,6 +77,10 @@ const WGSRackListItem = ({
   homeworld,
   ...props
 }) => {
+  const { isLoading, data } = useQuery("getHomeWorld", () =>
+    fetch(homeworld).then((res) => res.json())
+  );
+
   return (
     <CardBodyGrid columns={25} rowGap={2.3} columnGap={0.25}>
       <GridColumn column={5}>
@@ -103,7 +109,9 @@ const WGSRackListItem = ({
       </GridColumn>
       <GridColumn column={7}>
         <GroupContent>
-          <GroupValue>{homeworld || "—"}</GroupValue>
+          <GroupValue>
+            {isLoading ? "...loading" : data?.name || "—"}
+          </GroupValue>
           <GroupLabel>homeworld</GroupLabel>
         </GroupContent>
       </GridColumn>
