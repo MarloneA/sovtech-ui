@@ -9,7 +9,7 @@ import App from "./App";
 
 const client = new ApolloClient({
   cache: new InMemoryCache(),
-  uri: "http://localhost:80",
+  uri: process.env.REACT_APP_BASE_URL,
 });
 
 const history = createBrowserHistory();
