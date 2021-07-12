@@ -15,7 +15,7 @@ const ListWrapper = styled.div`
   display: flex;
   flex-flow: column;
   overflow-y: scroll;
-  padding: 2rem;
+  padding: 5rem 2rem;
   width: 55rem;
 
   -ms-overflow-style: none; /* IE and Edge */

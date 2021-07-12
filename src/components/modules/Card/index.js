@@ -8,7 +8,7 @@ const CardBodyFlex = styled.div`
   flex-flow: row wrap;
   justify-content: space-around;
 
-  padding: 5rem 2rem;
+  padding: 2rem;
   margin: 1rem 0px;
   background-color: rgb(32, 44, 51);
   border-radius: 0.4rem;
