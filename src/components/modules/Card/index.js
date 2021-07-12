@@ -2,39 +2,21 @@ import React from "react";
 import PropTypes from "prop-types";
 import styled, { css } from "styled-components";
 import { useQuery } from "react-query";
-import { Link } from "react-router-dom";
 
-const createGaps = ({ columnGap, rowGap }) => css`
-  grid-column-gap: ${`${columnGap}rem`};
-  column-gap: ${`${columnGap}rem`};
-  grid-row-gap: ${`${rowGap}rem`};
-  row-gap: ${`${rowGap}rem`};
-`;
-
-const CardBodyGrid = styled.div`
-  display: grid;
-  grid-template-columns: ${({ columns }) =>
-    `repeat(${columns}, minmax(0, 1fr))`};
-  grid-template-rows: auto;
-  align-items: center;
-
-  ${({ columnGap, rowGap }) => createGaps({ columnGap, rowGap })};
+const CardBodyFlex = styled.div`
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
 
   padding: 2rem;
-  height: 3.6rem;
   margin: 1rem 0px;
   background-color: rgb(32, 44, 51);
   border-radius: 0.4rem;
-  width: 60vw;
 
   &:hover {
     cursor: pointer;
     background: #2c3c48;
   }
-`;
-
-const GridColumn = styled.div`
-  grid-column: span ${({ column }) => column};
 `;
 
 const GroupContent = styled.div`
@@ -46,8 +28,6 @@ const GroupContent = styled.div`
 
 const GroupLabel = styled.label`
   color: rgb(98, 104, 109);
-  font-family: Avenir, AvenirLTStd-Book, "Helvetica Neue", Helvetica, Roboto,
-    sans-serif;
   font-size: 0.7rem;
   font-weight: bolder;
   letter-spacing: 1.7px;
@@ -56,8 +36,6 @@ const GroupLabel = styled.label`
 `;
 
 const GroupValue = styled.div`
-  font-family: Avenir, AvenirLTStd-Book, "Helvetica Neue", Helvetica, Roboto,
-    sans-serif;
   font-size: 1.1rem;
   font-weight: 600;
   white-space: initial;
@@ -82,40 +60,32 @@ const WGSRackListItem = ({
   );
 
   return (
-    <CardBodyGrid columns={25} rowGap={2.3} columnGap={0.25}>
-      <GridColumn column={5}>
-        <GroupContent>
-          <GroupValue>{name || "—"}</GroupValue>
-          <GroupLabel>Name</GroupLabel>
-        </GroupContent>
-      </GridColumn>
-      <GridColumn column={5}>
-        <GroupContent>
-          <GroupValue>{gender || "–"}</GroupValue>
-          <GroupLabel>gender</GroupLabel>
-        </GroupContent>
-      </GridColumn>
-      <GridColumn column={4}>
-        <GroupContent>
-          <GroupValue>{mass || "—"}</GroupValue>
-          <GroupLabel>mass</GroupLabel>
-        </GroupContent>
-      </GridColumn>
-      <GridColumn column={3}>
-        <GroupContent>
-          <GroupValue>{height || "—"}</GroupValue>
-          <GroupLabel>height</GroupLabel>
-        </GroupContent>
-      </GridColumn>
-      <GridColumn column={7}>
-        <GroupContent>
-          <GroupValue>
-            {isLoading ? "...loading" : data?.name || "—"}
-          </GroupValue>
-          <GroupLabel>homeworld</GroupLabel>
-        </GroupContent>
-      </GridColumn>
-    </CardBodyGrid>
+    <CardBodyFlex>
+      <GroupContent>
+        <GroupValue>{name || "—"}</GroupValue>
+        <GroupLabel>Name</GroupLabel>
+      </GroupContent>
+
+      <GroupContent>
+        <GroupValue>{gender || "–"}</GroupValue>
+        <GroupLabel>gender</GroupLabel>
+      </GroupContent>
+
+      <GroupContent>
+        <GroupValue>{mass || "—"}</GroupValue>
+        <GroupLabel>mass</GroupLabel>
+      </GroupContent>
+
+      <GroupContent>
+        <GroupValue>{height || "—"}</GroupValue>
+        <GroupLabel>height</GroupLabel>
+      </GroupContent>
+
+      <GroupContent>
+        <GroupValue>{isLoading ? "...loading" : data?.name || "—"}</GroupValue>
+        <GroupLabel>homeworld</GroupLabel>
+      </GroupContent>
+    </CardBodyFlex>
   );
 };
 

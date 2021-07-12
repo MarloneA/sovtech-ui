@@ -9,18 +9,26 @@ import AppTemplate from "../../templates/AppTemplate";
 import Card from "../../modules/Card";
 import ErrorPage from "../ErrorPage";
 import Loading from "../Loader";
+import { device } from "../../../responsive";
 
 const ListWrapper = styled.div`
   display: flex;
   flex-flow: column;
-  overflow: scroll;
-  padding: 5rem;
+  overflow-y: scroll;
+  padding: 2rem;
+  width: 55rem;
 
   -ms-overflow-style: none; /* IE and Edge */
   scrollbar-width: none; /* Firefox */
 
   &::-webkit-scrollbar {
     display: none;
+  }
+  @media ${device.tablet} {
+    width: 36rem;
+  }
+  @media ${device.mobileM} {
+    width: 14rem;
   }
 `;
 const MaterialComponent = styled.div`

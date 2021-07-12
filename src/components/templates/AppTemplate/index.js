@@ -12,7 +12,7 @@ const MainWrapper = styled.main`
 
 const HeaderWrapper = styled.header`
   background-color: #2a353a;
-  height: 7vh;
+  height: 3.5rem;
   margin: auto;
   width: 100%;
   position: fixed;
@@ -31,7 +31,7 @@ const HeaderWrapper = styled.header`
 
 const SideNavigation = styled.aside`
   background-color: #223a40;
-  width: 3vw;
+  width: 3rem;
   display: flex;
   justify-content: center;
   padding-top: 15px;
@@ -53,7 +53,7 @@ const AppTemplate = ({ children, header }) => {
       <MainWrapper>
         <SideNavigation>
           <a href="/">
-            <HomeOutlinedIcon style={{ color: "#24e5d8" }} />
+            <HomeOutlinedIcon style={{ color: "#24e5d8", padding: "0 1rem" }} />
           </a>
         </SideNavigation>
         <ContentWrapper>{children}</ContentWrapper>

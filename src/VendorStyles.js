@@ -6,6 +6,9 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
 
+    font-family: Avenir, AvenirLTStd-Book, "Helvetica Neue", Helvetica, Roboto,
+    sans-serif;
+
     &:focus { outline: none; } 
     scroll-behavior: smooth; 
   }
