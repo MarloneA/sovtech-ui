@@ -1,6 +1,10 @@
-# Getting Started with Create React App
+# Getting Started 
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+# Hosted client
+
+The client side of this application can be accessed at [sovtech client](https://whispering-badlands-40120.herokuapp.com/)
 
 ## Available Scripts
 
