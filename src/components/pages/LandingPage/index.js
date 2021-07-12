@@ -15,6 +15,13 @@ const ListWrapper = styled.div`
   flex-flow: column;
   overflow: scroll;
   padding: 5rem;
+
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 const MaterialComponent = styled.div`
   display: flex;
